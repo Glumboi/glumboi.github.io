@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Assets/icon.png">
+    <script type="text/javascript" src="./mail.js"></script>
+    <script defer src="openinfo.js"></script>
+    <title>GlumSak-Test info</title>
+</head>
+<body>
+    <div class="main"></div>
+
+    <h1 style="color:white;">Rules of GlumSak public testing:</h1>
+    <p class="listoftext">
+        - With downloading this you automatically accept that some corruption COULD occur while running a test build and NOT doing things right.<br>
+        Before any new builds are released I test them if they could do some heavy damage to the emulators so you don't need to worry about this at all except you are doing things that aren't meant to be done!
+        <br>
+        <br>
+        - You are not allowed to do any kinds of recording of the app or any parts of it unless you get asked for it by ONLY me
+        <br>
+        <br>
+        - If you encounter any bugs, contact me on Discord: Glumboi#4563 or (soon) write a bug report
+        <br>
+        <br>
+        - If you dont respect any rules of this public testing and I get a hold of it you'll be warned, after not respecting the rules again you could get blocked from the project entirely!
+    </p>
+
+    <p class="features">
+        Features of 1.6.5:
+    </p>
+
+    <p class="listoftext">
+        - Automatic key installation
+        <br>
+        <br>
+        - Automatic firmware installation
+        <br>
+        <br>
+        - Automatic game detection
+        <br>
+        <br>
+        - Portable install support for both Yuzu and Ryujinx.
+        <br> 
+        <br>
+        - Progressbar for all downloads.
+        <br> 
+        <br>
+        (new) - Discord rich presence
+        <br>
+        <br>
+        (To select a portable install open the config with the button on the left and select the folder of the portable Yuzu/Ryujinx
+         make sure you select the folder that contains the filesystem folders and files, for Ryu it would be called "portable" and for Yuzu it's "user")
+        <br>
+        <br>
+        More to come soon!
+        <br>
+        1.7 Will include the first version of shader installation!
+
+    </p>
+
+    <p class="features">
+        Fixes of 1.6.5:
+    </p>
+
+    <p class="listoftext">
+        - No big fixes that are worth listing here
+    </p>
+
+    <p class="important">
+        THIS IS FOR EDUCATION ONLY! AND I DISTANCE MYSELF FROM ANY COPYRIGHT VIOLATIONS
+    </p>
+
+    <p class="listoftext">
+        Participated already? Download the latest build here:
+        <button class="participateDlBtn" onclick="openParticipate()"> Download the latest build</button>
+    </p>
+
+    <h1 class="manual">Manual (everything marked with later isnt working correctly or not there yet): </h1>
+    <img class="manual" src="../Assets/GlumSakGuide.png">
+
+    <h1 class="participate">Participate here:</h1>
+    <p class="listoftext">
+        What do I want you in your canditature you ask?
+        <br>
+        Just follow these canditature rules (if you don't get an answer after a long time I either missed your canditature or rejected it):
+        <br>
+        <br>
+        - First, in the mail I would like you to tell something about yourself and if you ever had any experience in programming.
+        <br>
+        <br>
+        - Second I would like to know if you agree with everything written at the top (the testing rules).
+        <br>
+        <br>
+        - The third thing that I would like to know is what Emulators (Yuzu EA, Yuzu, Ryujinx) you are using and your Discord ID.
+        <br>
+        <br>
+        - The fourth thing I want to know is if you agree to NOT send any files or links to the testing build.
+    </p>
+    <button class="participateBtn" onclick="writecanditature('My canditature for GlumSak', 'Write the instructed canditature requirements here (DO NOT CHANGE THE TITLE)...')">Open participate mail writer</button>
+</body>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+    body {
+      font-family: "Poppins", sans-serif;
+      justify-content: left;
+      align-items: left;
+      min-height: 100vh;
+      background: linear-gradient(to right top, rgb(0, 0, 0) 0%, rgb(54, 54, 54) 35%, rgb(189, 189, 189) 100%);
+    }
+
+.main {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 1px;
+    width: 1px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: -42vw -4vh 0px 0px #fff,25vw -41vh 0px 0px #fff,-20vw 49vh 0px 1px #fff,5vw 40vh 1px 1px #fff,29vw 19vh 1px 0px #fff,-44vw -13vh 0px 0px #fff,46vw 41vh 0px 1px #fff,-3vw -45vh 0px 1px #fff,47vw 35vh 1px 0px #fff,12vw -8vh 1px 0px #fff,-34vw 48vh 1px 1px #fff,32vw 26vh 1px 1px #fff,32vw -41vh 1px 1px #fff,0vw 37vh 1px 1px #fff,34vw -26vh 1px 0px #fff,-14vw -49vh 1px 0px #fff,-12vw 45vh 0px 1px #fff,-44vw -33vh 0px 1px #fff,-13vw 41vh 0px 0px #fff,-36vw -11vh 0px 1px #fff,-23vw -24vh 1px 0px #fff,-38vw -27vh 0px 1px #fff,16vw -19vh 0px 0px #fff,28vw 33vh 1px 0px #fff,-49vw -4vh 0px 0px #fff,16vw 32vh 0px 1px #fff,36vw -18vh 1px 0px #fff,-25vw -30vh 1px 0px #fff,-23vw 24vh 0px 1px #fff,-2vw -35vh 1px 1px #fff,-25vw 9vh 0px 0px #fff,-15vw -34vh 0px 0px #fff,-8vw -19vh 1px 0px #fff,-20vw -20vh 1px 1px #fff,42vw 50vh 0px 1px #fff,-32vw 10vh 1px 0px #fff,-23vw -17vh 0px 0px #fff,44vw 15vh 1px 0px #fff,-40vw 33vh 1px 1px #fff,-43vw 8vh 0px 0px #fff,-48vw -15vh 1px 1px #fff,-24vw 17vh 0px 0px #fff,-31vw 50vh 1px 0px #fff,36vw -38vh 0px 1px #fff,-7vw 48vh 0px 0px #fff,15vw -32vh 0px 0px #fff,29vw -41vh 0px 0px #fff,2vw 37vh 1px 0px #fff,7vw -40vh 1px 1px #fff,15vw 18vh 0px 0px #fff,25vw -13vh 1px 1px #fff,-46vw -12vh 1px 1px #fff,-18vw 22vh 0px 0px #fff,23vw -9vh 1px 0px #fff,50vw 12vh 0px 1px #fff,45vw 2vh 0px 0px #fff,14vw -48vh 1px 0px #fff,23vw 43vh 0px 1px #fff,-40vw 16vh 1px 1px #fff,20vw -31vh 0px 1px #fff,-17vw 44vh 1px 1px #fff,18vw -45vh 0px 0px #fff,33vw -6vh 0px 0px #fff,0vw 7vh 0px 1px #fff,-10vw -18vh 0px 1px #fff,-19vw 5vh 1px 0px #fff,1vw 42vh 0px 0px #fff,22vw 48vh 0px 1px #fff,39vw -8vh 1px 1px #fff,-6vw -42vh 1px 0px #fff,-47vw 34vh 0px 0px #fff,-46vw 19vh 0px 1px #fff,-12vw -32vh 0px 0px #fff,-45vw -38vh 0px 1px #fff,-28vw 18vh 1px 0px #fff,-38vw -46vh 1px 1px #fff,49vw -6vh 1px 1px #fff,-28vw 18vh 1px 1px #fff,10vw -24vh 0px 1px #fff,-5vw -11vh 1px 1px #fff,33vw -8vh 1px 0px #fff,-16vw 17vh 0px 0px #fff,18vw 27vh 0px 1px #fff,-8vw -10vh 1px 1px #fff;
+
+  /* stars were too big with the layers above but left the code in case no one cares  -- as in, if noone's just that  one other loner who actually cares    */
+
+  box-shadow: 24vw 9vh 1px 0px #fff,12vw -24vh 0px 1px #fff,-45vw -22vh 0px 0px #fff,-37vw -40vh 0px 1px #fff,29vw 19vh 0px 1px #fff,4vw -8vh 0px 1px #fff,-5vw 21vh 1px 1px #fff,-27vw 26vh 1px 1px #fff,-47vw -3vh 1px 1px #fff,-28vw -30vh 0px 1px #fff,-43vw -27vh 0px 1px #fff,4vw 22vh 1px 1px #fff,36vw 23vh 0px 0px #fff,-21vw 24vh 1px 1px #fff,-16vw 2vh 1px 0px #fff,-16vw -6vh 0px 0px #fff,5vw 26vh 0px 0px #fff,-34vw 41vh 0px 0px #fff,1vw 42vh 1px 1px #fff,11vw -13vh 1px 1px #fff,48vw -8vh 1px 0px #fff,22vw -15vh 0px 0px #fff,45vw 49vh 0px 0px #fff,43vw -27vh 1px 1px #fff,20vw -2vh 0px 0px #fff,8vw 22vh 0px 1px #fff,39vw 48vh 1px 1px #fff,-21vw -11vh 0px 1px #fff,-40vw 45vh 0px 1px #fff,11vw -30vh 1px 0px #fff,26vw 30vh 1px 0px #fff,45vw -29vh 0px 1px #fff,-2vw 18vh 0px 0px #fff,-29vw -45vh 1px 0px #fff,-7vw -27vh 1px 1px #fff,42vw 24vh 0px 0px #fff,45vw -48vh 1px 0px #fff,-36vw -18vh 0px 0px #fff,-44vw 13vh 0px 1px #fff,36vw 16vh 0px 1px #fff,40vw 24vh 0px 0px #fff,18vw 11vh 0px 0px #fff,-15vw -23vh 1px 0px #fff,-24vw 48vh 0px 1px #fff,27vw -45vh 1px 0px #fff,-2vw -24vh 0px 1px #fff,-15vw -28vh 0px 0px #fff,-43vw 13vh 1px 0px #fff,7vw 27vh 1px 0px #fff,47vw 5vh 0px 0px #fff,-45vw 15vh 1px 1px #fff,-5vw -28vh 0px 1px #fff,38vw 25vh 1px 1px #fff,-39vw -1vh 1px 0px #fff,5vw 0vh 1px 0px #fff,49vw 13vh 0px 0px #fff,48vw 10vh 0px 1px #fff,19vw -28vh 0px 0px #fff,4vw 7vh 0px 0px #fff,21vw 21vh 1px 1px #fff,-15vw -15vh 0px 1px #fff,-6vw -42vh 1px 0px #fff,-15vw 48vh 1px 1px #fff,-23vw 25vh 1px 1px #fff,-48vw 25vh 0px 1px #fff,-31vw -19vh 0px 1px #fff,4vw 37vh 1px 1px #fff,-43vw 28vh 0px 0px #fff,3vw -25vh 0px 1px #fff,-39vw 14vh 0px 1px #fff,-40vw 31vh 0px 1px #fff,35vw -36vh 1px 1px #fff,16vw 49vh 0px 0px #fff,6vw 39vh 0px 0px #fff,3vw -35vh 0px 1px #fff,-44vw -2vh 1px 0px #fff,-6vw 21vh 1px 0px #fff,48vw 9vh 1px 1px #fff,-43vw 30vh 1px 1px #fff,29vw -12vh 1px 1px #fff,-48vw 13vh 1px 0px #fff,-42vw 32vh 1px 1px #fff,34vw 15vh 1px 1px #fff,29vw -37vh 1px 1px #fff,28vw 2vh 0px 0px #fff;
+  animation: zoom 16s alternate infinite;
+}
+
+@keyframes zoom {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.5);
+    }
+}
+
+.participateDlBtn{
+        background-color: #3db6ee; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+}
+
+    .participateBtn{
+        background-color: #3db6ee; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    .participate{
+        font-size: 25;
+        color: white;
+    }
+
+    .important{
+        color: red;
+        font-size: 40px;
+    }
+
+    .manual{
+        color: #3db6ee;
+        font-size: 40px;
+    }
+
+    .features{
+        color: #3db6ee;
+        font-size: 30px;
+    }
+
+    .listoftext{
+        color: white;
+        font-size: 20px;
+
+    }
+</style>
+</html>
