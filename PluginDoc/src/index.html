@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GP Documentation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/prism.css">
+  <link rel="icon" type="image/x-icon" href="Assets/Icon.png">
+	<style>
+
+</style>
+</head>
+<body>
+  <script src="JS/prism.js"></script>
+	<header>
+		<h1>Plugin Documentation</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#Home">Home</a></li>
+			<li><a href="#Getting Started">Getting Started</a></li>
+			<li><a href="#Creating a Plugin">Creating a Plugin</a></li>
+			<li><a href="#Creating a Plugin-ini">Creating a Plugin-ini</a></li>
+			<li><a href="#Conclusion">Conclusion</a></li>
+			<li><a href="https://github.com/Glumboi/GlumSak">GlumSak</a></li>
+		</ul>
+	</nav>
+	<main id="Home">
+		<h2>Introduction</h2>
+		<p>Welcome to the documentation for the creation of GlumSak Plugins.</p>
+		<h2 id="Getting Started">Getting Started</h2>
+		<h3>Requirements</h3>
+		<p>In order to create GlumSak Plugins, you will need 
+      <a href="https://github.com/Glumboi/GlumSak-Plugin-Template">Template for GlumSak Plugins</a>
+      :</p>
+		<ul>
+			<li>Windows 10 or later</li>
+			<li>The .NET Framework 4.8.1 or later</li>
+			<li>Basic C# Knowledge</li>
+      <li>Visual Studio 2017 or greater</li>
+		</ul>
+		<h3 id="Creating a Plugin">Creating a Plugin</h3>
+		<p>Demo of a basic GlumSak Plugin which shows a MessageBox with a given Parameter:</p>
+    <pre>
+      <code class="language-csharp">
+using System;
+using System.Windows.Forms;
+using System.Reflection;
+        
+namespace GlumSak_PluginTemplate
+{
+      public class Plugin
+      {
+            public static int exitCode;
+        
+            public static int PluginEntryPoint(object[] args) //--> Default Entrypoint of the Plugin
+            {
+                  if (args.Length > 0 &&
+                      args[0] is bool &&
+                      (bool)args[0] == true)
+                  {
+                      AppDomain.CurrentDomain.ProcessExit
+                         += OverrrideExitEvent; //--> Use custom ExitEvent if first param is bool and true
+                  }
+        
+                  //Your custom code here, you can also use WindowsForms with this (WPF might be possible too)
+                  MessageBox.Show(args[1].ToString());
+
+                  exitCode = 0;
+                  return exitCode;
+            }
+        
+            private static void OverrrideExitEvent(object sender, EventArgs e)
+            {
+                Console.WriteLine($"Plugin {Assembly.GetExecutingAssembly().FullName} exited with code: {exitCode}");
+                Console.ReadKey();
+            }
+      }
+}
+      </code>
+    </pre>
+		<h3 id="Creating a Plugin-ini">I finished the code and compiled it to a DLL, what now?</h3>
+		<p>In order to let GlumSak know that there is a Plugin you need to create an .ini File for your Plugin<br>
+    Here is how an .ini File for the above Plugin would look like:</p>
+    <pre>
+      <code class="language-ini">
+[GlumSakPlugin]
+
+;Name of the Plugin that is going to be displayed in GlumSak
+PluginName=MessageBoxDemo
+        
+;Entry point that GlumSak tries to execute
+Entrypoint=PluginEntryPoint
+        
+;Class of the Entrypoint
+Class=Plugin
+        
+;Namespace of the Entrypoint-class
+Namespace=GlumSak_PluginTemplate
+        
+;Parameters of plugin
+Params=false,Hello World!
+        
+;Icon of the Plugin
+PluginIcon=
+      </code>
+    </pre>
+		<h3>What are the fields all doing?</h3>
+    <h4>1. PluginName
+      <p>This Field holds the Name of your Plugin, make sure that it doesnt contain any spaces or special character</p>
+    </h4>
+    <h4>2. Entrypoint
+      <p>This Field holds the Name of the Plugin's Entrypoint, in our case we want it to be called 'PluginEntryPoint'.<br>
+      Please note, this can be changed to any Name that you gave the Entrypoint.</p>
+    </h4>
+    <h4>3. Class
+      <p>This Field holds the Class-Name of your Plugin where your Entrypoint sits in.</p>
+    </h4>
+    <h4>4. Namespace
+      <p>This Field holds the Namespace-Name of your Plugin where the Class and Entrypoint sit in.</p>
+    </h4>
+    <h4>5. Params
+      <p>This Field holds the Parameters (an object array) of the Entrypoint, the first value of the object array is always reserved for the override of the Exit-Event.<br>
+      <br>
+        In our exapmle, we used false and Hello World! as Parameters.<br>
+      false in this Case means: No we dont want to override the Exit-Event.<br>
+      <br>
+      Hello World! is our string argument that we want to show in out MessageBox, we convert it to a string in the code in order to use it as one.<br>
+      <br>
+      Note that the parameters are all stored as objects thus they can be convert to basically any value, array parameters are not supported!
+    </h4>
+    <h4>6. PluginIcon
+      <p>This Field holds the Icon of your Plugin which is going to be displayed in GlumSak, I did not set any rules for the design Theme, Height or Width. You can put any Image here basically. Can be left empty if no Icon is used<br>
+      Make sure that the Name really only contains the Name+file ending of the Icon</p>
+    </h4>
+    </pre>
+    <h3>I've done everything above, what now?</h3>
+		<p>Once compiled and set up, grab all the required file of your Plugin and put them in a Folder which can be called anything (Plugin Name as Folder Name recommended).<br>
+    Once that's done, you can move the Folder in the Plugins Folder of GlumSak which sits in the Directory where it got installed to!</p>
+    <h2 id="Conclusion">Conclusion and last Words</h3>
+		<p>These Plugins are still a BETA and are not done and are not supposed to be anything significant, rather a gimmic.<br><br>
+    Executing other languages with DLLImport and so on can be possible but are not officially tested!<br><br>
+    Winforms UI's are supported and work perfectly, Console based Plugins won't work because of the way .NET handles certain things.<br>This doesnt mean that it's impossible though, if you are smarter than I am then you can surely find a way to make it possible.<br>
+    WPF and other XAML based UI Frameworks are not verified/tested for support!
+    <br>
+    <br>
+    Interaction between GlumSak's code and the Plugin won't be possible due to Security risks.
+    <h1>
+      I don't take Responsibility for malicious behaviour of communiy Plugins!
+    </h1>  
+    </p>
+</main>
+<footer>
+<p>© 2023 Glumboi. All rights reserved.</p>
+</footer>
+</body>
+</html>
