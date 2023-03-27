@@ -19,6 +19,7 @@ h1 {
 }
 
 nav {
+    border-radius: 25px;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     padding: 10px;
@@ -77,6 +78,8 @@ p {
 }
 
 pre {
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #000000;
     color: #ffffff;
     padding: 10px;
@@ -91,11 +94,12 @@ code {
 }
 
 footer {
+    border-radius: 25px;
     background-color: #1777d0;
     color: #ffffff;
     padding: 20px;
-text-align: center;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
 
 footer p {
